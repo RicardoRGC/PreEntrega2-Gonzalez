@@ -10,10 +10,8 @@ const ItemListContainer = ({ datosJson }) => {
   const params = useParams();
 
   const [datos, setDatos] = useState([]);
-  // console.log(JSON.stringify(params) === "{}");
-  // console.log(params);
 
-  function handleFetch() {
+  function handleDatos() {
     let datos1 = datosJson;
 
     JSON.stringify(params) === "{}"
@@ -25,7 +23,7 @@ const ItemListContainer = ({ datosJson }) => {
   }
 
   useEffect(() => {
-    handleFetch();
+    handleDatos();
   }, [params]);
 
   return (

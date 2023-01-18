@@ -7,24 +7,32 @@ import ErrorPage from "./NotFound";
 import Nosotros from "./Routes/Nosotros";
 import ItemDetailContainer from "./Routes/itemDetailContainer";
 import datosJson from "./datos.json";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [datos, setDatos] = useState([]);
+
+  function handleFetch() {
+    let datos1 = datosJson;
+    setDatos(datos1);
+  }
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
   return (
     <>
       <BrowserRouter>
         <NavBar post="fixed" />
         <Routes>
-          <Route
-            path="/"
-            element={<ItemListContainer datosJson={datosJson} />}
-          />
+          <Route path="/" element={<ItemListContainer datosJson={datos} />} />
           <Route
             path="/category/:id"
-            element={<ItemListContainer datosJson={datosJson} />}
+            element={<ItemListContainer datosJson={datos} />}
           />
           <Route
             path="/item/:id"
-            element={<ItemDetailContainer datosJson={datosJson} />}
+            element={<ItemDetailContainer datosJson={datos} />}
           />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="*" element={<ErrorPage />} />
