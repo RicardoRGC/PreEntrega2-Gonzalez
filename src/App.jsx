@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import ErrorPage from "./NotFound";
 import Nosotros from "./Routes/Nosotros";
-import ItemDetailContainer from "./Routes/itemDetailContainer";
+import ItemDetailContainer from "./Routes/ItemDetailContainer";
 import datosJson from "./datos.json";
 import { useEffect, useState } from "react";
 
